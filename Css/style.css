@@ -1,0 +1,697 @@
+/* ---------- Reset & Font ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #ffffff;
+    scroll-behavior: smooth;
+}
+
+/* ---------- Hero Section ---------- */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    padding: 15px 35px;
+    font-size: 18px;
+    border-radius: 50px;
+    background-color: #ffffff;
+    color: #d32f2f;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero .btn:hover {
+    background-color: #f5f5f5;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* ซ้ายขวา */
+    align-items: center;
+    background-color: #ffffff; /* สีพื้นขาว */
+    padding: 10px 40px;
+    font-weight: bold;
+    position: sticky; /* ติดบน */
+    top: 0;
+    z-index: 100;
+
+    /* ขอบล่างแดง */
+    border-bottom: 4px solid #d32f2f;
+
+    /* เงา */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* โลโก้ + ชื่อ */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar-left .logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.navbar-left .company-name {
+    color: #d32f2f; /* ชื่อบริษัทเป็นแดง */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* เมนูด้านขวา */
+.navbar-right a {
+    color: #d32f2f; /* สีตัวอักษรแดง */
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+.navbar-right a:hover {
+    background-color: rgba(211, 47, 47, 0.1); /* สีแดงโปร่งเวลาผ่านเมาส์ */
+    border-radius: 5px;
+}
+
+/* ---------- Sections ---------- */
+.section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.section h2 {
+    color: #d32f2f;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+/* ---------- About Images ---------- */
+.about-images {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.about-item {
+    width: 250px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.about-item img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.about-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- About Images Cards ---------- */
+.about-images {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.about-item {
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    width: 300px;  /* ขนาดใหญ่ขึ้น */
+    text-align: center;
+    cursor: pointer;
+}
+
+.about-item img {
+    width: 100%;
+    height: 250px; /* ภาพสูงขึ้น */
+    object-fit: cover;
+    display: block;
+}
+
+.about-item p {
+    padding: 15px 10px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500; /* ตัวหนาเท่ากันทั้งสองรูป */
+}
+
+/* Hover Effect */
+.about-item:hover {
+    transform: scale(1.08); /* ขยายเล็กน้อย */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3); /* เงาเข้มขึ้น */
+}
+
+.about-item:hover p {
+    font-weight: 700; /* ตัวหนังสือหนาขึ้นเมื่อ hover */
+    color: #d32f2f; /* เปลี่ยนสีตัวอักษรเวลา hover */
+}
+
+/* ---------- Services Cards ---------- */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid #d32f2f;
+}
+
+/* ---------- Sections ---------- */
+.section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+/* ---------- About Section Images as Cards ---------- */
+.about-images {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.about-item {
+    background-color: #ffffff;
+    border: 2px solid #d32f2f; /* ขอบแดง */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* เงาสวย */
+    overflow: hidden;
+    width: 280px; /* ขนาดพอดี */
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 1s ease;
+}
+
+.about-item.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.about-item img {
+    width: 100%;      /* เต็มขนาดกล่อง */
+    height: 220px;    /* สูงขึ้นจากเดิม */
+    object-fit: cover;
+}
+
+
+.about-item p {
+    padding: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    background-color: #d32f2f;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background-color: #b71c1c;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background-color: #d32f2f;
+    color: #fff;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 50px;
+}
+
+/* ---------- Contact Section ---------- */
+.contact-section {
+    background-color: #f8f8f8;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    color: #d32f2f;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: #555;
+}
+
+/* Container ข้อมูลและฟอร์ม */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* ข้อมูลติดต่อ */
+.contact-info {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 400px;
+    text-align: left;
+}
+
+.contact-info h3 {
+    color: #d32f2f;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* ฟอร์มติดต่อ */
+.contact-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 400px;
+}
+
+.contact-form h3 {
+    color: #d32f2f;
+    margin-bottom: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+.contact-form .btn {
+    width: 100%;
+    background-color: #d32f2f;
+    color: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact-form .btn:hover {
+    background-color: #b71c1c;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* ---------- Hero Fade-in ---------- */
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInDown 1s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+@keyframes fadeInDown {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ---------- Hero Logo ---------- */
+/* ---------- Hero Logo ---------- */
+/* ---------- Hero Logo ---------- */
+.hero-logo {
+    width: 600px;     /* ขนาดโลโก้ */
+    max-width: 80%;   /* ป้องกันไม่ให้ล้นจอ */
+    height: auto;
+    margin-bottom: 5px;
+    margin-top: 1px; /* ✅ เลื่อนลงมานิดหน่อย */
+    animation: fadeDown 2s ease;
+}
+
+
+/* โลโก้ + ข้อความค่อยๆเฟดลงมา */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.service-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 5px solid #d32f2f;
+    text-align: center;
+}
+
+.service-card img.service-img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain; 
+    margin-bottom: 15px;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+/* ---------- About Section ---------- */
+.about-section {
+    background-color: #fff8f8;
+    padding: 120px 20px 80px 20px; /* ไม่ชน Navbar */
+}
+
+.about-section h2 {
+    color: #d32f2f;
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.highlight {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+/* ---------- About Images / Cards ---------- */
+.about-images {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.about-item {
+    background-color: #ffffff;
+    border-radius: 30px; /* การ์ดโค้งมนสวย */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 1s ease;
+    cursor: pointer;
+}
+
+.about-item.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.about-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.about-item p {
+    padding: 15px;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* Hover Effect */
+.about-item:hover {
+    transform: scale(1.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    color: #d32f2f;
+}
+/* ---------- News Section ---------- */
+.news-section {
+    padding: 80px 20px;
+    background: #fafafa;
+}
+
+.news-section .section-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 50px;
+    color: #333;
+    font-weight: 700;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.news-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.news-card:hover {
+    transform: translateY(-8px);
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-card h3 {
+    font-size: 20px;
+    margin: 15px;
+    color: #d32f2f;
+}
+
+.news-card p {
+    font-size: 15px;
+    margin: 0 15px 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.btn-news {
+    display: inline-block;
+    margin: 0 15px 20px;
+    padding: 10px 18px;
+    background: #d32f2f;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.btn-news:hover {
+    background: #b71c1c;
+}
+
+/* ---------- Modal ---------- */
+.news-modal {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0,0,0,0.7);
+    animation: fadeIn 0.5s ease;
+}
+
+.modal-content {
+    background: #fff;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 850px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: slideDown 0.6s ease;
+}
+
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-content h3 {
+    color: #d32f2f;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.modal-content .date {
+    font-size: 14px;
+    color: #777;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* ปุ่มปิด */
+.close-btn {
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #d32f2f;
+}
+
+/* เอฟเฟกต์ */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes slideDown {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
